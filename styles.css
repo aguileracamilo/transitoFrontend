@@ -1,16 +1,14 @@
 body {
+
     background-color: #EFF0F4;
+}
+#cuerpo-index {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-h1{
-    color: #3565dc;
-    font-size: 5em;
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
-}
+
 
 button img{
 
@@ -41,9 +39,41 @@ section{
     display: flex;
     flex-direction: row;
 }
-h2{
+.subtitulo{
     font-size: 40px;
     margin-top: 12px;
     color:#EFF0F4 ;
 }
 
+
+
+#barra {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #415F9D;
+    height: 50px;
+    margin-bottom: 80px;
+}
+.opciones {
+
+    font-family:'Arial';
+    color: white;
+    margin-left: 20px;
+    margin-right:20px ;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.line-separator {
+    border-left: 3px solid rgb(255, 255, 255);
+    height: 37px;
+    font-size: 50px;
+}
+
+#link-inicio {
+    margin-right: 300px;
+}
+.etiqueta-inicio {
+    font-size: 40px;
+}

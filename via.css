@@ -1,0 +1,30 @@
+
+#barra {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #415F9D;
+    height: 50px;
+}
+.opciones {
+
+    font-family:'Arial';
+    color: white;
+    margin-left: 20px;
+    margin-right:20px ;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.line-separator {
+    border-left: 3px solid rgb(255, 255, 255);
+    height: 37px;
+    font-size: 50px;
+}
+
+#link-inicio {
+    margin-right: 300px;
+}
+.etiqueta-inicio {
+    font-size: 40px;
+}

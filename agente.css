@@ -1,0 +1,141 @@
+/*general*/
+body {
+    background-color: #EFF0F4;
+}
+#cuerpo {
+    display: flex;
+    flex-direction: row;
+}
+/* Menu bar*/
+
+#barra {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #415F9D;
+    height: 50px;
+    margin-bottom: 80px;
+}
+
+.opciones {
+
+    font-family: 'Arial';
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.line-separator {
+    border-left: 3px solid rgb(255, 255, 255);
+    height: 37px;
+    font-size: 50px;
+}
+
+#link-inicio {
+    margin-right: 300px;
+}
+
+.etiqueta-inicio {
+    font-size: 40px;
+}
+
+/* Tabla Agentes*/
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-right: #000;
+    margin-left: 20px;
+    display: table-row;
+}
+td {
+    text-align: center;
+}
+
+th {
+    
+    margin: 250px;
+    padding: 10px;
+}
+
+#scroll-agentes {
+    border: 1px solid;
+    height: 400px;
+    width: 700px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 50px;
+}
+#scroll-vias{
+    border: 1px solid;
+    height: 200px;
+    width: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 50px;
+
+}
+
+button {
+   /* border-width: 0px;*/
+   font-size: 25px;
+   color: white;
+   border-radius: 10px;
+   width: 150px;
+}
+
+.colorFondo {
+    background-color: blue;
+    color: white;
+
+}
+.fila-seleccionada {
+    background-color: blue;
+    color: white;
+}
+/*Botones crud*/
+
+#btn-borrar {
+    background-color: red;
+}
+
+#btn-actualizar {
+    background-color: blue;
+}
+
+#btn-registrar {  
+    background-color: #48917f; 
+}
+
+#botones-crud {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+#encabezado {
+    border-bottom: solid 1px #000;
+    
+}
+
+/*Formulario*/
+
+
+#formulario {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.fila-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px;
+    
+}
+.etiqueta-input {
+    font-family: 'Arial';
+}
