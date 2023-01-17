@@ -55,8 +55,8 @@ function agregarEventoBotones() {
     botonRegistrarAgente.addEventListener('click', registrarAgente)
     let botonActualizarAgente = document.getElementById('btn-actualizar')
     botonActualizarAgente.addEventListener('click', actualizarAgente)
-    //let botonBorrarAgente = document.getElementById('btn-borrar')
-    // botonBorrarAgente.addEventListener('click', borrarAgente)
+    let botonBorrarAgente = document.getElementById('btn-borrar')
+    botonBorrarAgente.addEventListener('click', borrarAgente)
     let botonLimpiar = document.getElementById('btn-limpiar')
     botonLimpiar.addEventListener('click', vaciarFormulario)
 }
@@ -161,7 +161,30 @@ function actualizarFilaAgente(item) {
             filas[i].cells[4].innerHTML = item.viaAsignada
         }
     }
-    codigoAgenteSeleccionado=item.codigo
+    codigoAgenteSeleccionado = item.codigo
+}
+function eliminarDeTabla(text) {
+    if (codigoInput.value.trim() == "") {
+
+        codigoInput.classList.add("corregir")
+        mensajeCodigo.innerHTML = "El campo está vacío"
+        resultado = false
+    } else {
+        codigo = (codigoAgenteSeleccionado != "") ? codigoAgenteSeleccionado : codigoInput.value;
+        let filas = document.querySelectorAll("#myTable tr");
+        if (text == 'error') {
+            alert('No se pudo eliminar')
+        } else {
+            for (let i = 0; i < filas.length; i++) {
+                if (filas[i].cells[2].innerHTML == codigoInput.value) {
+                    filas[i].remove();
+
+                }
+            }
+            codigoAgenteSeleccionado = ""
+            alert(text)
+        }
+    }
 }
 
 function agregarEventosFilas() {

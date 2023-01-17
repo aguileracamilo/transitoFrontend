@@ -61,3 +61,15 @@ function actualizarAgente() {
     }
 
 }
+function borrarAgente() {
+    fetch(url + 'EliminarAgente', {
+        method: 'POST',
+        headers: {
+            'codigo': codigoInput.value,
+        }
+    })
+        .then(respuesta => respuesta.text()).then(text => eliminarDeTabla(text))
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
