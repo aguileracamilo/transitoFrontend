@@ -10,7 +10,12 @@ body {
 
 
 /* Tabla Agentes*/
-
+tr:nth-child(even) {
+    background-color: rgb(255, 255, 255);
+  }
+  tr:nth-child(odd) {
+    background-color: #f9fafc;
+  }
 table {
     border-collapse: collapse;
 }
@@ -54,7 +59,7 @@ th {
 
 
 .color-fondo {
-    background-color: blue;
+    background-color: #415F9D !important;
     color: white;
     user-select: none;
 

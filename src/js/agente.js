@@ -9,6 +9,15 @@ var mensajeExperiencia;
 var mensajeCodigo;
 var mensajeCodigoExperiencia;
 
+document.addEventListener('DOMContentLoaded', function () {
+    agregarEventoBotones();
+    agregarEventosFilas();
+    seleccionarFilaMTabla();
+    getAgentes();
+    getVias();
+    inicializarInputs();
+    vaciarFormulario();
+});
 /*
 window.addEventListener('load', function () {
     agregarEventoBotones();
@@ -19,15 +28,8 @@ window.addEventListener('load', function () {
 });
 */
 
-document.addEventListener('DOMContentLoaded', function() {
-    agregarEventoBotones();
-    agregarEventosFilas();
-    getAgentes();
-    inicializarInputs();
-    vaciarFormulario();
-});
 function inicializarInputs() {/*
-    nombreInput = document.getElementById("input-nombre");
+nombreInput = document.getElementById("input-nombre");
     experienciaInput = document.getElementById("input-experiencia");
     codigoInput = document.getElementById("input-codigo");
     codigoSecretariaInput = document.getElementById("input-codigo-secretaria");
@@ -55,18 +57,25 @@ function agregarEventoBotones() {
     //botonActualizarAgente.addEventListener('click', actualizarAgente)
     //let botonBorrarAgente = document.getElementById('btn-borrar')
     // botonBorrarAgente.addEventListener('click', borrarAgente)
+    let botonLimpiar = document.getElementById('btn-limpiar')
+    botonLimpiar.addEventListener('click', vaciarFormulario)
 }
 function vaciarFormulario() {
     nombreInput.value = "";
     experienciaInput.value = "";
     codigoInput.value = "";
     codigoSecretariaInput.value = "";
+    const selectedRows = document.querySelectorAll("tr.color-fondo");
+    for (let i = 0; i < selectedRows.length; i++) {
+        selectedRows[i].classList.remove("color-fondo")
+    }
+    idViaSeleccionada=""
 
 }
 function estaAgenteCompleto() {
     resultado = true
     blanquear();
-    
+
     if (nombreInput.value.trim() == "") {
         nombreInput.classList.add("corregir")
         mensajeNombre.innerHTML = "El campo está vacío"
@@ -110,6 +119,7 @@ function blanquear() {
 
     codigoSecretariaInput.classList.remove("corregir")
     mensajeCodigoExperiencia.innerHTML = ""
+
 }
 
 function agregarRegistrosAtabla(item) {
@@ -125,7 +135,7 @@ function agregarRegistrosAtabla(item) {
     experienceCol.innerHTML = item.experienciaAnios;
     identificationCol.innerHTML = item.codigo;
     secretariaCol.innerHTML = item.codigoSecretaria;
-    viaCol.innerHTML = (item.viaAsignada != 0) ? item.viaAsignada : "";
+    viaCol.innerHTML = (item.viaAsignada != 0 || item.viaAsignada != "") ? item.viaAsignada : "";
 
     fila.appendChild(nombreCol);
     fila.appendChild(experienceCol);
@@ -154,9 +164,20 @@ function agregarEventosFilas() {
                 if (currentSelectedRow) {
                     currentSelectedRow.classList.remove("color-fondo");
                 }
-                idViaSeleccionada = newSelectedRow.cells[0].innerHTML;
+                llenarFormulario(newSelectedRow);
+                buscarEnTabla(newSelectedRow.cells[4].innerHTML);
+                idViaSeleccionada = newSelectedRow.cells[4].innerHTML;
                 newSelectedRow.classList.add("color-fondo");
             }
         }
     });
+}
+function llenarFormulario(fila) {
+
+    nombreInput.value = fila.cells[0].innerHTML;
+    experienciaInput.value = fila.cells[1].innerHTML;
+    codigoInput.value = fila.cells[2].innerHTML;
+    codigoSecretariaInput.value = fila.cells[3].innerHTML;
+
+
 }
