@@ -2,44 +2,12 @@
 body {
     background-color: #EFF0F4;
 }
+
 #cuerpo {
     display: flex;
     flex-direction: row;
 }
-/* Menu bar*/
 
-#barra {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #415F9D;
-    height: 50px;
-    margin-bottom: 80px;
-}
-
-.opciones {
-
-    font-family: 'Arial';
-    color: white;
-    margin-left: 20px;
-    margin-right: 20px;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.line-separator {
-    border-left: 3px solid rgb(255, 255, 255);
-    height: 37px;
-    font-size: 50px;
-}
-
-#link-inicio {
-    margin-right: 300px;
-}
-
-.etiqueta-inicio {
-    font-size: 40px;
-}
 
 /* Tabla Agentes*/
 
@@ -52,25 +20,29 @@ tr {
     margin-left: 20px;
     display: table-row;
 }
+
 td {
     text-align: center;
 }
 
 th {
-    
+
     margin: 250px;
     padding: 10px;
 }
 
-#scroll-agentes {
+#scroll-principal {
     border: 1px solid;
     height: 400px;
     width: 700px;
     overflow-y: scroll;
     overflow-x: hidden;
     margin-left: 50px;
+    user-select: none;
+
 }
-#scroll-vias{
+
+#scroll-vias {
     border: 1px solid;
     height: 200px;
     width: 600px;
@@ -80,49 +52,68 @@ th {
 
 }
 
-button {
-   /* border-width: 0px;*/
-   font-size: 25px;
-   color: white;
-   border-radius: 10px;
-   width: 150px;
-}
 
-.colorFondo {
+.color-fondo {
     background-color: blue;
     color: white;
+    user-select: none;
 
 }
+
 .fila-seleccionada {
     background-color: blue;
     color: white;
 }
-/*Botones crud*/
 
+/*Botones crud*/
+button {
+    display: flex;
+    border-width: 0px;
+    font-size: 17px;
+    color: white;
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 150px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+ #btn-limpiar{
+    width: 42px;
+    height: 40px;
+    color: white;
+    background-color: #838383;
+    border-radius: 10px;
+    margin-left: 80px;
+    display: flex;
+    justify-content: space-between;
+}
 #btn-borrar {
     background-color: red;
 }
 
 #btn-actualizar {
-    background-color: blue;
+    background-color: #415F9D;
 }
 
-#btn-registrar {  
-    background-color: #48917f; 
+#btn-registrar {
+    background-color: #48917f;
 }
 
 #botones-crud {
+    display: flex;
+    flex-direction: row;
     margin-top: 10px;
     margin-left: 50px;
 }
 
-#encabezado {
+.encabezado {
     border-bottom: solid 1px #000;
-    
+
 }
 
 /*Formulario*/
-
 
 #formulario {
     margin-left: 50px;
@@ -133,9 +124,36 @@ button {
 .fila-input {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 10px;
-    
+
+    margin-right: 10px;
+
 }
+
 .etiqueta-input {
     font-family: 'Arial';
+}
+
+h3 {
+    color: red;
+    height: 15px;
+    font-weight: 12;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 3px;
+}
+
+.corregir{
+    border: 1px solid red;
+}
+input {
+    width: 270px;
+    height: 23px; 
+    border-radius: 5px;
+    border: 1px solid rgb(151, 151, 151);
+ 
+
 }

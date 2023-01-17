@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=”utf-8”>
+    <title>Gestor de Vias</title>
+    <script src="../js/agente.js"> </script>
+    <script src="../js/miniTablaVia.js"> </script>
+    <script src="../js/restController/agenteRestController.js"> </script>
+
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/agente.css">
+
+</head>
+
+<body>
+    <nav id="barra-menu">
+        <a href="./index.html" class="opciones-menu" id="link-inicio">
+            <h2 class="etiqueta-inicio">Tránsito</h2>
+        </a>
+        <a href="./agente_page.html" class="opciones-menu">
+            <h2 class="opciones-menu" id="posicionado">Agentes de tránsito</h2>
+            <div class="triangle" style="margin-left: 112px;"></div>
+        </a>
+        <div class="line-separator"></div>
+        <a href="./via_page.html" class="opciones-menu">
+            <h2 class="opciones-menu">Vías</h2>
+        </a>
+        <div class="line-separator"></div>
+        <a href="historial.html" class="opciones-menu">
+            <h2 class="opciones-menu">Historial</h2>
+        </a>
+    </nav>
+    <section id="cuerpo">
+
+        <div id="scroll-principal">
+            <table id="myTable">
+                <tr id="encabezado" class="encabezado">
+                    <th>Nombre</th>
+                    <th>Años de experiencia</th>
+                    <th>Codigo de identificacion</th>
+                    <th>Codigo de secretaria</th>
+                    <th>Via asignada</th>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+
+            <div id="formulario">
+
+                <div class="fila-input">
+                    <label class="etiqueta-input">Nombre completo*</label>
+                    <div>
+                        <input type="text" maxlength="50" placeholder="Ingrese nombre" id="input-nombre">
+                        <h3 id="mensaje-nombre"></h3>
+                    </div>
+                </div>
+                <div class="fila-input">
+                    <label class="etiqueta-input">Experiencia (años)*</label>
+                    <div>
+                        <input type="number" min="0" placeholder="Ingrese experiencia" id="input-experiencia">
+                        <h3 id="mensaje-experiencia"></h3>
+                    </div>
+                </div>
+                <div class="fila-input">
+                    <label class="etiqueta-input">Codigo*</label>
+                    <div>
+                        <input type="text" maxlength="10" placeholder="Ingrese codigo" id="input-codigo">
+                        <h3 id="mensaje-codigo"></h3>
+                    </div>
+                </div>
+                <div class="fila-input">
+                    <label class="etiqueta-input">Codigo de la Secretaria*</label>
+                <div>
+                    <input type="text" maxlength="10" placeholder="Ingrese codigo de Secretaria"
+                        id="input-codigo-secretaria">
+                    <h3 id="mensaje-codigo-secretaria"></h3>
+                </div>
+                </div>
+            </div>
+            <div id="scroll-vias">
+                <table id="myTableM">
+                    <tr id="encabezado-mini" class="encabezado">
+                        <th>Identificador</th>
+                        <th>Tipo</th>
+                        <th>Codigo de identificacion</th>
+                        <th>Número</th>
+                        <th>Nivel de Congestión</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="botones-crud">
+                <button id="btn-borrar" class="crud"><img src="../../assets/equis_icon.png" width=12
+                        height=12>Borrar</button>
+                <button id="btn-actualizar" class="crud"><img src="../../assets/actualizar.png" width=15
+                        height=15>Actualizar</button>
+                <button id="btn-registrar" class="crud"><img src="../../assets/mas_icon.png" width=13
+                        height=13>Registrar</button>
+                <button id="btn-limpiar"><img src="../../assets/limpiar.png" width=31 height=35></button>
+            </div>
+        </div>
+
+
+    </section>
+
+
+</body>
+
+</html>
