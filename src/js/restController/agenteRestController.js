@@ -13,12 +13,7 @@ function getAgentes() {
         });
 }
 function registrarAgente() {
-    console.log(nombreInput.value+" aa")
-    console.log(experienciaInput.value+" aa")
-    console.log(codigoInput.value+" aa")
-    console.log(codigoSecretariaInput.value+" aa")
-    console.log(idViaSeleccionada+" aa")
-    
+
     if (estaAgenteCompleto()) {
         fetch(url + 'RegistrarAgente', {
             method: 'POST',
@@ -34,6 +29,30 @@ function registrarAgente() {
                 if (text != "error" && text != "Ya existe") {
                     agregarRegistrosAtabla({ "nombre": nombreInput.value, "experienciaAnios": experienciaInput.value, "codigo": codigoInput.value, "codigoSecretaria": codigoSecretariaInput.value, "viaAsignada": idViaSeleccionada });
                 }
+                alert(text);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+}
+
+function actualizarAgente() {
+    if (estaAgenteCompleto()) {
+        fetch(url + 'ActualizarAgente', {
+            method: 'POST',
+            headers: {
+                'nombre': nombreInput.value,
+                'experiencia': parseFloat(experienciaInput.value),
+                'codigo': (codigoAgenteSeleccionado != "") ? codigoAgenteSeleccionado : codigoInput.value,
+                'codigo_nuevo': codigoInput.value,
+                'codigo_secretaria': codigoSecretariaInput.value,
+                'via_asignada': (idViaSeleccionada !== "") ? idViaSeleccionada : 0,
+            }
+        })
+            .then(respuesta => respuesta.text()).then(text => {
+                actualizarFilaAgente({ "nombre": nombreInput.value, "experienciaAnios": experienciaInput.value, "codigo": codigoInput.value, "codigoSecretaria": codigoSecretariaInput.value, "viaAsignada": idViaSeleccionada });
                 alert(text);
             })
             .catch(error => {

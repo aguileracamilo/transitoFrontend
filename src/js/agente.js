@@ -2,7 +2,7 @@ var nombreInput;
 var experienciaInput;
 var codigoInput;
 var codigoSecretariaInput;
-var codigoAgenteSeleccionado;
+var codigoAgenteSeleccionado = "";
 
 var mensajeNombre;
 var mensajeExperiencia;
@@ -53,8 +53,8 @@ nombreInput = document.getElementById("input-nombre");
 function agregarEventoBotones() {
     let botonRegistrarAgente = document.getElementById('btn-registrar')
     botonRegistrarAgente.addEventListener('click', registrarAgente)
-    //  let botonActualizarAgente = document.getElementById('btn-actualizar')
-    //botonActualizarAgente.addEventListener('click', actualizarAgente)
+    let botonActualizarAgente = document.getElementById('btn-actualizar')
+    botonActualizarAgente.addEventListener('click', actualizarAgente)
     //let botonBorrarAgente = document.getElementById('btn-borrar')
     // botonBorrarAgente.addEventListener('click', borrarAgente)
     let botonLimpiar = document.getElementById('btn-limpiar')
@@ -69,7 +69,7 @@ function vaciarFormulario() {
     for (let i = 0; i < selectedRows.length; i++) {
         selectedRows[i].classList.remove("color-fondo")
     }
-    idViaSeleccionada=""
+    idViaSeleccionada = ""
 
 }
 function estaAgenteCompleto() {
@@ -147,6 +147,22 @@ function agregarRegistrosAtabla(item) {
     table.appendChild(fila);
 
 }
+function actualizarFilaAgente(item) {
+
+    codigo = (codigoAgenteSeleccionado != "") ? codigoAgenteSeleccionado : codigoInput.value;
+    let filas = document.querySelectorAll("#myTable tr");
+
+    for (let i = 0; i < filas.length; i++) {
+        if (filas[i].cells[2].innerHTML == codigo) {
+            filas[i].cells[0].innerHTML = item.nombre
+            filas[i].cells[1].innerHTML = item.experienciaAnios
+            filas[i].cells[2].innerHTML = item.codigo
+            filas[i].cells[3].innerHTML = item.codigoSecretaria
+            filas[i].cells[4].innerHTML = item.viaAsignada
+        }
+    }
+    codigoAgenteSeleccionado=item.codigo
+}
 
 function agregarEventosFilas() {
     const table = document.getElementById("myTable");
@@ -159,6 +175,7 @@ function agregarEventosFilas() {
         if (newSelectedRow === selectedRow && newSelectedRow.id !== "encabezado") {
             if (newSelectedRow.classList.contains("color-fondo")) {
                 newSelectedRow.classList.remove("color-fondo");
+                codigoAgenteSeleccionado = ""
             } else {
                 const currentSelectedRow = table.querySelector(".color-fondo");
                 if (currentSelectedRow) {
@@ -166,6 +183,7 @@ function agregarEventosFilas() {
                 }
                 llenarFormulario(newSelectedRow);
                 buscarEnTabla(newSelectedRow.cells[4].innerHTML);
+                codigoAgenteSeleccionado = newSelectedRow.cells[2].innerHTML;
                 idViaSeleccionada = newSelectedRow.cells[4].innerHTML;
                 newSelectedRow.classList.add("color-fondo");
             }
