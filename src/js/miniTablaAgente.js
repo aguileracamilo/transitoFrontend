@@ -57,5 +57,34 @@ function seleccionarFilaMTabla() {
         }
     }
     );
+}
+function buscarEnTablaA(idVia) {
+    let filas = document.querySelectorAll("#scroll-vias table tr");
+
+    console.log(idVia)
+    for (let i = 0; i < filas.length; i++) {
+
+        if (filas[i].cells[4].innerHTML == idVia) {
+            idViaSeleccionada = filas[i].cells[4].innerHTML;
+            filas[i].classList.add("color-fondo");
+        }
+        else {
+            filas[i].classList.remove("color-fondo");
+        }
+    }
+
+}
+
+function listarAgentesAsignados(idVia) {
+    let filas = document.querySelectorAll("#scroll-vias table tr");
+    let lista = [];
+
+    for (let i = 0; i < filas.length; i++) {
+        if (identificadorInput.value == idVia) {
+
+            lista.push(filas[i].cells[2].innerHTML);
+        }
+    }
+    return lista;
 
 }

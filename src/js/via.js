@@ -83,6 +83,7 @@ function agregarEventosFilas() {
                 if (currentSelectedRow) {
                     currentSelectedRow.classList.remove("color-fondo");
                 }
+                buscarEnTablaA(newSelectedRow.cells[0].innerHTML);
                 newSelectedRow.classList.add("color-fondo");
             }
         }
