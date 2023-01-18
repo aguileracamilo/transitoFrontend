@@ -60,7 +60,6 @@ function seleccionarFilaMTabla() {
           if (currentSelectedRow) {
             currentSelectedRow.classList.remove("color-fondo");
           }
-          idViaSeleccionada = newSelectedRow.cells[0].innerHTML;
           newSelectedRow.classList.add("color-fondo");
         }
       }

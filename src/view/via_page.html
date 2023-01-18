@@ -4,11 +4,13 @@
 <head>
     <meta charset=”utf-8”>
     <title>Vias</title>
-    <script src="../js/agente.js"> </script>
-    <script src="../js/restController/agenteRestController.js"> </script>
-  
+    <script src="../js/via.js"> </script>
+    <script src="../js/restController/viaRestController.js"> </script>
+    <script src="../js/miniTablaAgente.js"> </script>
+
     <link rel="stylesheet" href="../css/menu.css">
-    
+    <link rel="stylesheet" href="../css/agente.css">
+
 
 </head>
 
@@ -30,6 +32,98 @@
             <h2 class="opciones-menu">Historial</h2>
         </a>
     </nav>
+
+    <section id="cuerpo">
+
+        <div id="scroll-principal">
+            <table id="myTable">
+                <tr id="encabezado" class="encabezado">
+                    <th>Identificador</th>
+                    <th width="140px">Tipo</th>
+                    <th>Codigo de identificacion</th>
+                    <th>Número</th>
+                    <th>Nivel de Congestión</th>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+
+            <div id="formulario">
+
+                <div class="fila-input">
+                    <label class="etiqueta-input">Identificador*</label>
+                    <div id="input-validacion">
+                        <input type="number" maxlength="50" placeholder="Ingrese un número" id="input-id-via">
+                        <h3 id="mensaje-id-via"></h3>
+                    </div>
+                </div>
+                <div class="fila-input">
+                    <label class="etiqueta-input">Tipo*</label>
+                    <div>
+                        <select name="mi_combo_box" id="box-tipo-via">
+                            <option value="opcion1">Autopista</option>
+                            <option value="opcion2">Carretera Principal</option>
+                            <option value="opcion3">Carretera Secundaria</option>
+                        </select>
+                        <h3></h3>
+                    </div>
+                </div>
+                <div class="fila-input">
+                    <label class="etiqueta-input">Calle / Carrera*</label>
+                    <div>
+
+                        <select name="mi_combo_box" id="box-tipo-calle">
+                            <option value="opcion1">Calle</option>
+                            <option value="opcion2">Carrera</option>
+                        </select>
+                        <h3></h3>
+                    </div>
+                </div>
+                <div class="fila-input">
+                    <label class="etiqueta-input">Número*</label>
+                    <div>
+                        <input type="number" maxlength="10" placeholder="Ingrese el número de ruta"
+                            id="input-numero-ruta">
+                        <h3 id="mensaje-numero-ruta"></h3>
+                    </div>
+                </div>
+                <div class="fila-input">
+                    <label class="etiqueta-input">Nivel de Congestion*</label>
+                    <div>
+                        <input type="number" min="0" max="100" maxlength="2" placeholder="Ingrese el nivel"
+                            id="input-nivel-congestion">
+                        <h3 id="mensaje-nivel-congestion"></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="scroll-vias">
+                <table id="myTableM">
+                    <tr id="encabezado-mini" class="encabezado">
+                        <th width="150px">Nombre</th>
+                        <th>Años de experiencia</th>
+                        <th>Codigo de identificacion</th>
+                        <th>Codigo de secretaria</th>
+                        <th>Vía</th>
+                    </tr>
+
+
+                </table>
+            </div>
+
+            <div id="botones-crud">
+                <button id="btn-borrar" class="crud"><img src="../../assets/equis_icon.png" width=12
+                        height=12>Borrar</button>
+                <button id="btn-actualizar" class="crud"><img src="../../assets/actualizar.png" width=15
+                        height=15>Actualizar</button>
+                <button id="btn-registrar" class="crud"><img src="../../assets/mas_icon.png" width=13
+                        height=13>Registrar</button>
+                <button id="btn-limpiar"><img src="../../assets/limpiar.png" width=31 height=35></button>
+            </div>
+        </div>
+
+
+    </section>
 
 </body>
 

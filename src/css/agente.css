@@ -162,3 +162,9 @@ input {
  
 
 }
+select{
+    width: 275px;
+    height: 25px; 
+    border-radius: 5px;
+    border: 1px solid rgb(151, 151, 151);
+}
