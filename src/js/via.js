@@ -3,6 +3,7 @@ var tipoBox;
 var tipoCalleBox;
 var numeroInput;
 var nivelCongestionInput;
+var codigoIdViaSeleccionada = 0;
 
 var mensajeIdentificador;
 var mensajeNumero;
@@ -30,6 +31,17 @@ function inicializarInputs() {
     mensajeNumero = document.querySelector("#mensaje-numero-ruta");
     mensajeNivelCongestion = document.querySelector("#mensaje-nivel-congestion");
 
+}
+function vaciarFormulario() {
+    identificadorInput.value="";
+    numeroInput.value="";
+    nivelCongestionInput.value="";
+    codigoIdViaSeleccionada = 0;
+
+    const selectedRows = document.querySelectorAll("tr.color-fondo");
+    for (let i = 0; i < selectedRows.length; i++) {
+        selectedRows[i].classList.remove("color-fondo")
+    }
 }
 function blanquear() {
     identificadorInput.classList.remove("corregir")
@@ -77,24 +89,75 @@ function agregarEventosFilas() {
         const newSelectedRow = e.target.parentNode;
         if (newSelectedRow === selectedRow && newSelectedRow.id !== "encabezado") {
             if (newSelectedRow.classList.contains("color-fondo")) {
+                idViaSeleccionada = 0
                 newSelectedRow.classList.remove("color-fondo");
             } else {
                 const currentSelectedRow = table.querySelector(".color-fondo");
                 if (currentSelectedRow) {
                     currentSelectedRow.classList.remove("color-fondo");
                 }
+                idViaSeleccionada = parseInt(newSelectedRow.cells[0].innerHTML)
                 buscarEnTablaA(newSelectedRow.cells[0].innerHTML);
+                llenarFormulario(newSelectedRow);
                 newSelectedRow.classList.add("color-fondo");
             }
         }
     });
 }
+function actualizarFilaVia(item) {
+    id = (idViaSeleccionada != 0) ? idViaSeleccionada : identificadorInput.value;
+    let filas = document.querySelectorAll("#myTable tr");
+
+    for (let i = 0; i < filas.length; i++) {
+        if (filas[i].cells[0].innerHTML == id) {
+            filas[i].cells[0].innerHTML = item.idVia
+            filas[i].cells[1].innerHTML = item.tipoVia
+            filas[i].cells[2].innerHTML = item.tipoCalle
+            filas[i].cells[3].innerHTML = item.numeroRuta
+            filas[i].cells[4].innerHTML = item.nivelCongestion
+        }
+    }
+    codigoAgenteSeleccionado = item.codigo
+}
+
+function llenarFormulario(fila) {
+
+    identificadorInput.value = fila.cells[0].innerHTML;
+
+    switch (fila.cells[1].innerHTML) {
+        case "AUTOPISTA":
+            tipoBox.value = "opcion1";
+            break;
+        case "CARRETERA_PRINCIPAL":
+            tipoBox.value = "opcion2";
+            break;
+        case "CARRETERA_SECUNDARIA":
+            tipoBox.value = "opcion3";
+            break;
+        default:
+            console.log("Opcion no valida");
+    }
+    switch (fila.cells[2].innerHTML) {
+        case "CALLE":
+            tipoCalleBox.value = "opcion1";
+            break;
+        case "CARRERA":
+            tipoCalleBox.value = "opcion2";
+            break;
+        default:
+            console.log("Opcion no valida");
+    }
+    numeroInput.value = fila.cells[3].innerHTML;
+    nivelCongestionInput.value = fila.cells[4].innerHTML;
+
+
+}
 function estaViaCompleta() {
     resultado = true
     blanquear();
 
-    
-    if (identificadorInput.value =="") {
+
+    if (identificadorInput.value == "") {
         identificadorInput.classList.add("corregir")
         mensajeIdentificador.innerHTML = "Vacío o Carácter no válido (+,*,-,e)"
         resultado = false
@@ -104,7 +167,7 @@ function estaViaCompleta() {
         mensajeIdentificador.innerHTML = "No se permite un número menor a 0"
         resultado = false
     }
-    if (numeroInput.value =="") {
+    if (numeroInput.value == "") {
         numeroInput.classList.add("corregir")
         mensajeNumero.innerHTML = "Vacío o Carácter no válido (+,*,-,e)"
         resultado = false
@@ -114,7 +177,7 @@ function estaViaCompleta() {
         mensajeNumero.innerHTML = "No se permite un número menor a 0"
         resultado = false
     }
-    if (nivelCongestionInput.value =="") {
+    if (nivelCongestionInput.value == "") {
         nivelCongestionInput.classList.add("corregir")
         mensajeNivelCongestion.innerHTML = "Vacío o Carácter no válido (+,*,-,e)"
         resultado = false
@@ -127,13 +190,13 @@ function estaViaCompleta() {
     return resultado;
 }
 function agregarEventoBotones() {
-    
+
     let botonRegistrarAgente = document.getElementById('btn-registrar')
     botonRegistrarAgente.addEventListener('click', registrarVia)
-   /* let botonActualizarAgente = document.getElementById('btn-actualizar')
-    botonActualizarAgente.addEventListener('click', actualizarAgente)
-    let botonBorrarAgente = document.getElementById('btn-borrar')
-    botonBorrarAgente.addEventListener('click', borrarAgente)
+    let botonActualizarAgente = document.getElementById('btn-actualizar')
+    botonActualizarAgente.addEventListener('click', actualizarVia)
+    /*let botonBorrarAgente = document.getElementById('btn-borrar')
+    botonBorrarAgente.addEventListener('click', borrarAgente)*/
     let botonLimpiar = document.getElementById('btn-limpiar')
-    botonLimpiar.addEventListener('click', vaciarFormulario)*/
+    botonLimpiar.addEventListener('click', vaciarFormulario)
 }

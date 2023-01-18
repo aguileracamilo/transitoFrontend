@@ -75,16 +75,31 @@ function buscarEnTablaA(idVia) {
 
 }
 
-function listarAgentesAsignados(idVia) {
+function listarAgentesAsignados() {
     let filas = document.querySelectorAll("#scroll-vias table tr");
     let lista = [];
 
     for (let i = 0; i < filas.length; i++) {
-        if (identificadorInput.value == idVia) {
-
+        if (filas[i].getAttribute("class") == "color-fondo") {
+            console.log("entra")
             lista.push(filas[i].cells[2].innerHTML);
         }
     }
     return lista;
+
+}
+function actualizarTablaAsignados(idVia) {
+    let filas = document.querySelectorAll("#scroll-vias table tr");
+
+    for (let i = 0; i < filas.length; i++) {
+        if(filas[i].cells[4].innerHTML==idVia){
+            filas[i].cells[4].innerHTML=""
+        }
+
+        if (filas[i].getAttribute("class") == "color-fondo") {
+
+            filas[i].cells[4].innerHTML=(idViaSeleccionada!=0)?idViaSeleccionada:idVia;
+        }
+    }
 
 }
