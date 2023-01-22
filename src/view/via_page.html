@@ -3,14 +3,15 @@
 
 <head>
     <meta charset=”utf-8”>
-    <title>Vias</title>
+    <title>Vías</title>
     <script src="../js/via.js"> </script>
+    <script src="../js/viaTabla.js"> </script>
     <script src="../js/restController/viaRestController.js"> </script>
     <script src="../js/miniTablaAgente.js"> </script>
 
+
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/agente.css">
-
 
 </head>
 
@@ -37,11 +38,11 @@
 
         <div id="scroll-principal">
             <table id="myTable">
-                <tr id="encabezado" class="encabezado">
+                <tr height="46px" id="encabezado" class="encabezado">
                     <th>Identificador</th>
-                    <th width="140px">Tipo</th>
-                    <th>Codigo de identificacion</th>
-                    <th>Número</th>
+                    <th width="140px" >Tipo</th>
+                    <th width="140px">Calle/Carrera</th>
+                    <th width="140px">Número</th>
                     <th>Nivel de Congestión</th>
                 </tr>
             </table>
@@ -91,7 +92,7 @@
                 <div class="fila-input">
                     <label class="etiqueta-input">Nivel de Congestion*</label>
                     <div>
-                        <input type="number" min="0" max="100" maxlength="2" placeholder="Ingrese el nivel"
+                        <input type="number" maxlength="2" min="0" max="100" maxlength="2" placeholder="Ingrese el nivel"
                             id="input-nivel-congestion">
                         <h3 id="mensaje-nivel-congestion"></h3>
                     </div>
@@ -100,14 +101,12 @@
             <div id="scroll-vias">
                 <table id="myTableM">
                     <tr id="encabezado-mini" class="encabezado">
-                        <th width="150px">Nombre</th>
+                        <th width="140px">Nombre</th>
                         <th>Años de experiencia</th>
-                        <th>Codigo de identificacion</th>
-                        <th>Codigo de secretaria</th>
-                        <th>Vía</th>
+                        <th>Código de identificacion</th>
+                        <th>Código de secretaria</th>
+                        <th width="80px">Vía</th>
                     </tr>
-
-
                 </table>
             </div>
 

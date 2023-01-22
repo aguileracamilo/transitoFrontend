@@ -1,11 +1,11 @@
 url = 'http://192.168.101.77:8080/';
 
-function getAgentes() {
+function getAgentes(tabla) {
     fetch(url + 'TodosAgentes')
         .then(respuesta => respuesta.json())
         .then(data => {
             for (const item of data) {
-                agregarRegistrosAtabla(item);
+                agregarRegistrosAtablaAgente(item,tabla);
             }
         })
         .catch(error => {
@@ -27,7 +27,7 @@ function registrarAgente() {
         })
             .then(respuesta => respuesta.text()).then(text => {
                 if (text != "error" && text != "Ya existe") {
-                    agregarRegistrosAtabla({ "nombre": nombreInput.value, "experienciaAnios": experienciaInput.value, "codigo": codigoInput.value, "codigoSecretaria": codigoSecretariaInput.value, "viaAsignada": idViaSeleccionada });
+                    agregarRegistrosAtablaAgente({ "nombre": nombreInput.value, "experienciaAnios": experienciaInput.value, "codigo": codigoInput.value, "codigoSecretaria": codigoSecretariaInput.value, "viaAsignada": idViaSeleccionada },"encabezado");
                 }
                 alert(text);
             })

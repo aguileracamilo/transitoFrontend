@@ -103,3 +103,15 @@ function actualizarTablaAsignados(idVia) {
     }
 
 }
+function borrarAsignado(idVia) {
+    let filas = document.querySelectorAll("#scroll-vias table tr");
+
+    for (let i = 0; i < filas.length; i++) {
+
+        if (filas[i].cells[4].innerHTML==idVia) {
+
+            filas[i].cells[4].innerHTML="";
+        }
+    }
+
+}

@@ -3,7 +3,7 @@ var tipoBox;
 var tipoCalleBox;
 var numeroInput;
 var nivelCongestionInput;
-var codigoIdViaSeleccionada = 0;
+var idViaSeleccionada = 0;
 
 var mensajeIdentificador;
 var mensajeNumero;
@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
     /*
     vaciarFormulario();
     */
-    getVias();
+    getVias("encabezado");
     inicializarInputs();
 });
+
 function inicializarInputs() {
     identificadorInput = document.querySelector("#input-id-via");
     tipoBox = document.querySelector("#box-tipo-via");
@@ -36,7 +37,7 @@ function vaciarFormulario() {
     identificadorInput.value="";
     numeroInput.value="";
     nivelCongestionInput.value="";
-    codigoIdViaSeleccionada = 0;
+    idViaSeleccionada = 0;
 
     const selectedRows = document.querySelectorAll("tr.color-fondo");
     for (let i = 0; i < selectedRows.length; i++) {
@@ -55,30 +56,6 @@ function blanquear() {
 
 }
 
-function agregarRegistrosAtabla(item) {
-    var table = document.getElementById("encabezado").parentNode;
-    var fila = document.createElement("tr");
-    var identificadorCol = document.createElement("td");
-    var tipoViaCol = document.createElement("td");
-    var tipoCalleCol = document.createElement("td");
-    var numeroCol = document.createElement("td");
-    var nivelCongestionCol = document.createElement("td");
-
-    identificadorCol.innerHTML = item.idVia;
-    tipoViaCol.innerHTML = item.tipoVia;
-    tipoCalleCol.innerHTML = item.tipoCalle;
-    numeroCol.innerHTML = item.numeroRuta;
-    nivelCongestionCol.innerHTML = item.nivelCongestion;
-
-    fila.appendChild(identificadorCol);
-    fila.appendChild(tipoViaCol);
-    fila.appendChild(tipoCalleCol);
-    fila.appendChild(numeroCol);
-    fila.appendChild(nivelCongestionCol);
-
-    fila.id = "fila-seleccionada";
-    table.appendChild(fila);
-}
 function agregarEventosFilas() {
     const table = document.getElementById("myTable");
     let selectedRow = null;
@@ -189,14 +166,25 @@ function estaViaCompleta() {
     }
     return resultado;
 }
+function eliminarViaDeTabla(text) {
+    if (text == 'error') {
+        alert('No se pudo eliminar')
+    } else {
+        const filaSeleccionada = document.getElementsByClassName("color-fondo");
+
+        filaSeleccionada[0].remove();
+        alert(text)
+    }
+
+}
 function agregarEventoBotones() {
 
     let botonRegistrarAgente = document.getElementById('btn-registrar')
     botonRegistrarAgente.addEventListener('click', registrarVia)
     let botonActualizarAgente = document.getElementById('btn-actualizar')
     botonActualizarAgente.addEventListener('click', actualizarVia)
-    /*let botonBorrarAgente = document.getElementById('btn-borrar')
-    botonBorrarAgente.addEventListener('click', borrarAgente)*/
+    let botonBorrarAgente = document.getElementById('btn-borrar')
+    botonBorrarAgente.addEventListener('click', borrarVia)
     let botonLimpiar = document.getElementById('btn-limpiar')
     botonLimpiar.addEventListener('click', vaciarFormulario)
 }

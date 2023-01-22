@@ -1,0 +1,121 @@
+.scroll-principal {
+    border: 1px solid;
+    height: 400px;
+    width: 750px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 50px;
+    user-select: none;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(255, 255, 255);
+}
+
+tr:nth-child(odd) {
+    background-color: #f9fafc;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-right: #000;
+    margin-left: 20px;
+    display: table-row;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+
+    margin: 250px;
+    padding: 10px;
+}
+
+.encabezado {
+    border-bottom: solid 1px #000;
+
+}
+
+#cuerpo {
+    display: flex;
+    flex-direction: row;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+#scroll-vias {
+    border: 1px solid;
+    height: 400px;
+    width: 615px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 50px;
+
+}
+
+input {
+    width: 270px;
+    height: 23px;
+    border-radius: 5px;
+    border: 1px solid rgb(151, 151, 151);
+}
+
+select {
+    width: 275px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid rgb(151, 151, 151);
+    margin-right: 30px;
+}
+
+#contenedor-tabla-m {
+    margin-top: 46px;
+}
+
+button {
+    background-color: aquamarine;
+    border-width: 0px;
+    font-size: 17px;
+    color: white;
+    border-radius: 10px;
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.etiqueta-input {
+    margin-right: 10px;
+}
+
+.color-fondo {
+    background-color: #415F9D !important;
+    color: white;
+    user-select: none;
+
+}
+
+h3 {
+    color: red;
+    height: 15px;
+    font-weight: 12;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 3px;
+}
+
+button {
+    background-color: #415F9D;
+}

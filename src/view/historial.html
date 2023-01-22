@@ -4,8 +4,16 @@
 <head>
     <meta charset=”utf-8”>
     <title>Vias</title>
-  
+
+    <script src="../js/restController/agenteRestController.js"> </script>
+    <script src="../js/restController/viaRestController.js"> </script>
+    <script src="../js/restController/historialRestController.js"> </script>
+    <script src="../js/historial.js"> </script>
+    <script src="../js/agenteTabla.js"> </script>
+    <script src="../js/viaTabla.js"> </script>
+
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/historial.css">
 
 </head>
 
@@ -27,6 +35,62 @@
             <div class="triangle" style="margin-left: 42px;"></div>
         </a>
     </nav>
+
+    <section id="cuerpo">
+        <div>
+            <div id="formulario">
+                <div class="fila-input">
+                    <label class="etiqueta-input">Filtrar por</label>
+
+                    <select name="mi_combo_box" id="box-agente-via">
+                        <option value="opcion1">Agente</option>
+                        <option value="opcion2">Vía</option>
+                    </select>
+                </div>
+                <div class="fila-input">
+
+                    <input type="text" maxlength="10" placeholder="Ingrese un id o codigo" id="input-id-via">
+                    <h3 id="mensaje"></h3>
+                </div>
+                <button id="btn-buscar">buscar</button>
+            </div>
+            <div id="scroll-principal-agente" class="scroll-principal">
+                <table id="tabla-agente">
+                    <tr id="encabezado" class="encabezado">
+                        <th width="130px">Nombre</th>
+                        <th>Años de experiencia</th>
+                        <th>Codigo de identificacion</th>
+                        <th>Codigo de secretaria</th>
+                        <th>Via asignada</th>
+                    </tr>
+                </table>
+            </div>
+            <div id="scroll-principal-via" class="scroll-principal">
+                <table id="tabla-via">
+                    <tr id="encabezado1" class="encabezado">
+                        <th width="140px">Identificador</th>
+                        <th width="140px">Tipo</th>
+                        <th>Codigo de identificacion</th>
+                        <th>Número</th>
+                        <th>Nivel de Congestión</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="contenedor-tabla-m">
+            <div id="scroll-vias">
+                <table id="myTableM">
+                    <tr height="58px" id="encabezado-mini" class="encabezado">
+                        <th width="180px">Codigo Agente</th>
+                        <th width="180px">Identificador via</th>
+                        <th width="180px">Fecha</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </section>
+
 
 </body>
 
