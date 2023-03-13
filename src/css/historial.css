@@ -74,7 +74,8 @@ select {
     height: 25px;
     border-radius: 5px;
     border: 1px solid rgb(151, 151, 151);
-    margin-right: 30px;
+    margin-right: 10px;
+
 }
 
 #contenedor-tabla-m {
@@ -118,4 +119,20 @@ h3 {
 
 button {
     background-color: #415F9D;
+}
+
+.opciones-via {
+    width: 130px;
+}
+
+.opcion-seleccionada-agente {
+
+    width: 268px
+}
+
+#box-vias {
+    display: flex;
+    flex-direction: row;
+    margin-right: 30px;
+
 }

@@ -39,14 +39,21 @@
     <section id="cuerpo">
         <div>
             <div id="formulario">
-                <div class="fila-input">
-                    <label class="etiqueta-input">Filtrar por</label>
+                <div class="fila-input" id="box-vias" >
+                    <label class="etiqueta-input" >Filtrar por</label>
 
-                    <select name="mi_combo_box" id="box-agente-via">
+                    <select class="opcion-seleccionada-agente" name="mi_combo_box" id="box-agente-via">
                         <option value="opcion1">Agente</option>
                         <option value="opcion2">Vía</option>
                     </select>
+
+                    <select class="opciones-via" name="mi_combo_box" id="box-calle-carrera">
+                        <option value="calle">Calle</option>
+                        <option value="carrera">Carrera</option>
+                    </select>
+
                 </div>
+
                 <div class="fila-input">
 
                     <input type="text" maxlength="10" placeholder="Ingrese un id o codigo" id="input-id-via">

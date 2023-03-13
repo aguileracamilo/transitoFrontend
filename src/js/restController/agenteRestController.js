@@ -1,4 +1,4 @@
-url = 'http://192.168.101.77:8080/';
+url = 'http://192.168.101.79:8080/';
 
 function getAgentes(tabla) {
     fetch(url + 'TodosAgentes')

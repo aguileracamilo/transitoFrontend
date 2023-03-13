@@ -2,9 +2,12 @@ var tablaAgente;
 var tablaVia;
 var comboBox
 
+var comboBoxCalleCarrera
+
 var buscadorInput;
 
 document.addEventListener('DOMContentLoaded', function () {
+    comboBoxCalleCarrera = document.getElementById('box-calle-carrera')
     cargarTablas();
     let botonBuscar = document.getElementById('btn-buscar')
     botonBuscar.addEventListener('click', buscar)
@@ -24,16 +27,22 @@ function cargarTablas() {
     tablaAgente = document.getElementById('scroll-principal-agente')
     tablaVia = document.getElementById('scroll-principal-via')
     tablaVia.style.display = 'none';
+    comboBoxCalleCarrera.style.display = 'none';
 }
 
 function cambiarTabla() {
 
     if (comboBox.selectedIndex == 0) {
-
+        comboBox.classList.remove('opciones-via');
+        comboBox.classList.add('opcion-seleccionada-agente');
+        comboBoxCalleCarrera.style.display = 'none';
         tablaVia.style.display = 'none';
         tablaAgente.style.display = 'block';
     } else {
+        comboBox.classList.remove('opcion-seleccionada-agente');
+        comboBox.classList.add('opciones-via');
         tablaAgente.style.display = 'none';
+        comboBoxCalleCarrera.style.display = 'block';
         tablaVia.style.display = 'block';
     }
     borrarFilas()
@@ -120,16 +129,15 @@ function borrarFilas() {
 function buscar() {
     mensaje = document.getElementById('mensaje')
     mensaje.innerHTML = ""
-    
+
     if (buscadorInput.value != "") {
-        
+
         borrarFilas()
 
         if (comboBox.selectedIndex == 0) {
-      
+
             buscarAgente()
         } else {
-
             buscarVia()
         }
     } else {
@@ -143,7 +151,7 @@ function buscarAgente() {
 }
 
 function buscarVia() {
-    getViaHistorial(parseInt(buscadorInput.value))
+    getViaHistorialPorDireccion(parseInt(buscadorInput.value))
 }
 
 

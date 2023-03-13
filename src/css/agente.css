@@ -12,8 +12,8 @@ body {
 /* Tabla Agentes*/
 tr:nth-child(even) {
     background-color: rgb(255, 255, 255);
-  }
-  tr:nth-child(odd) {
+}
+tr:nth-child(odd) {
     background-color: #f9fafc;
   }
 table {
@@ -35,6 +35,10 @@ th {
     padding: 10px;
 }
 
+.encabezado {
+    border-bottom: solid 1px #000;
+
+}
 #scroll-principal {
     border: 1px solid;
     height: 400px;
@@ -112,10 +116,6 @@ button {
     margin-left: 50px;
 }
 
-.encabezado {
-    border-bottom: solid 1px #000;
-
-}
 
 /*Formulario*/
 
